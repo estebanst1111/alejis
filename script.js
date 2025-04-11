@@ -12,23 +12,20 @@ const audio = document.querySelector('#audio')
 
 btnCloseElement.disabled = true
 
-// 💌 Intro
+
 const introScreen = document.getElementById('intro')
 const startButton = document.getElementById('start')
 const mainContent = document.getElementById('mainContent')
 
 startButton.addEventListener('click', () => {
-  // reproducir canción
   if (audio) audio.play()
 
-  // transición suave
   introScreen.style.opacity = '0'
   introScreen.style.transition = 'opacity 0.8s ease'
-  
+
   setTimeout(() => {
     introScreen.style.display = 'none'
     mainContent.style.display = 'block'
-    // aplicar clase visible con transición
     setTimeout(() => {
       mainContent.classList.add('visible')
     }, 50)
@@ -51,8 +48,11 @@ btnOpenElement.addEventListener('click', () => {
     paperElement.classList.remove('close-paper')
     paperElement.classList.add('open-paper')
 
-    const heartElement = document.querySelector('.heart')
-    heartElement.style.display = 'block'
+
+    const heartElements = document.querySelectorAll('.heart')
+    heartElements.forEach((heart) => {
+      heart.style.display = 'block'
+    })
   }, 500)
 })
 
@@ -69,11 +69,11 @@ btnCloseElement.addEventListener('click', () => {
     coverElement.style.zIndex = 0
     coverElement.classList.remove('open-cover')
 
-    const heartElement = document.querySelector('.heart')
-    heartElement.style.display = 'none'
+    const heartElements = document.querySelectorAll('.heart')
+    heartElements.forEach((heart) => {
+      heart.style.display = 'none'
+    })
 
     if (gifElement) gifElement.classList.remove('hidden')
-
-    // ¡Ya no detenemos la música!
   }, 500)
 })
