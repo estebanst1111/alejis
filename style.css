@@ -1,0 +1,218 @@
+/* reset css */
+* {
+  min-width: 0;
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: 'Dancing Script', cursive;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* estilos */
+body {
+  background-color: #a3d9c9;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container-letter {
+  position: relative;
+}
+
+.cover {
+  position: absolute;
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-top: 100px solid #1abc9c;
+  border-bottom: 100px solid transparent;
+  transition: transform 0.75s;
+  transform-origin: top;
+}
+
+.paper {
+  position: absolute;
+  padding: 1.5rem;
+  line-height: 2rem;
+  right: 5px;
+  z-index: -1;
+  background: white;
+  width: 390px;
+  height: 180px;
+  transition: all 0.75s;
+}
+
+.letter {
+  border-left: 200px solid #76c7b7;
+  border-right: 200px solid #76c7b7;
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid #48b4a1;
+}
+
+.options {
+  display: flex;
+  gap: 5rem;
+}
+
+.options button {
+  color: #0b5e4b;
+  font-weight: 600;
+  border-radius: 3px;
+  background: #a3d9c9;
+  padding: 0.5rem 1rem;
+  border: 1px solid #1abc9c;
+  cursor: pointer;
+}
+
+.options button:hover {
+  background: #48b4a1;
+  color: white;
+}
+
+.open-cover {
+  transform: rotatex(180deg);
+}
+
+.open-paper {
+  animation: openPaper 0.5s forwards;
+}
+
+@keyframes openPaper {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -120px;
+  }
+}
+
+.close-paper {
+  animation: closePaper 0.5s forwards;
+}
+
+@keyframes closePaper {
+  0% {
+    top: -120px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.heart {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 46.5%;
+  margin: auto;
+  font-size: 3rem;
+  color: #1abc9c;
+  animation: crecer 1s forwards;
+}
+
+@keyframes crecer {
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 3;
+    opacity: 0;
+  }
+}
+
+/* Estilo del GIF */
+.gif-inicial {
+  position: absolute;
+  top: 5%; /* más arriba */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 1;
+}
+
+.gif-inicial.hidden {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.8);
+}
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  background-color: #a3d9c9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.intro-screen h1 {
+  font-size: 2rem;
+  color: #0b5e4b;
+  font-family: 'Dancing Script', cursive;
+}
+
+.intro-screen button {
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  background-color: #1abc9c;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.intro-screen button:hover {
+  background-color: #148f77;
+}
+/* Transición para mostrar el contenido suavemente */
+#mainContent {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease, transform 0.8s ease;
+}
+
+/* Cuando se activa la carta */
+#mainContent.visible {
+  opacity: 1;
+  transform: scale(1);
+}

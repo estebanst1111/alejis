@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 🎬 Pantalla de bienvenida -->
+  <div class="intro-screen" id="intro">
+    <h1>💌 Es que... quiero que des click aquí... Te va a encantar! 🎵</h1>
+    <button id="start">Comenzar</button>
+  </div>
+
+  <!-- 🎁 Contenido oculto al inicio -->
+  <div id="mainContent" style="display: none;">
+    <img src="img/cute.gif" alt="Gif especial" class="gif-inicial" />
+
+    <main>
+      <div class="container-letter">
+        <div class="cover"></div>
+        <span class="heart">♥</span>
+        <p class="paper" id="mainMessage">
+          En este día especial de amor y amistad, celebremos los lazos que nos unen. Que la alegría y el cariño nos acompañen siempre. ¡Feliz día!
+        </p>
+        <div class="letter"></div>
+      </div>
+      <div class="options">
+        <button id="open">Abrir</button>
+        <button id="close">Cerrar</button>
+      </div>
+    </main>
+  </div>
+
+  <audio id="audio" src="audio/cancion.mp3"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
